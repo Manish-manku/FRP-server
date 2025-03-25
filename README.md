@@ -78,31 +78,10 @@ To start the FRP server in the background, run:
 ```sh
 sudo frps -c /etc/frp/frps.ini &
 ```
-![image alt](https://drive.google.com/file/d/1e496otzw_Jbat62XleSjQkxf8VeenSKi/view?usp=sharing)
+![Image](https://github.com/user-attachments/assets/abfe270a-5896-4dfa-a3c4-62ea5fe03bca)
 To ensure FRP starts automatically on reboot, create a systemd service:
 ```sh
 sudo nano /etc/systemd/system/frps.service
 ```
-
-Add the following:
-```ini
-[Unit]
-Description=FRP Server
-After=network.target
-
-[Service]
-ExecStart=/usr/local/bin/frps -c /etc/frp/frps.ini
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Save and exit, then enable the service:
-```sh
-sudo systemctl enable frps
-sudo systemctl start frps
-```
-
 Your FRP server is now up and running!
 
